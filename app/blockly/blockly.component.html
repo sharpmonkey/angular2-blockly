@@ -1,0 +1,25 @@
+<div>
+  <xml id="toolbox" style="display: none">
+    <block type="ng2_component"></block>
+    <block type="ng2_import"></block>
+  </xml>
+  <div class="row">
+    <div class="col-md-7">
+      <div id="blocklyDiv"></div>
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        <button class="btn btn-danger" (click)="clickedNew()">New</button>
+        <form (submit)="clickedSave()" #saveForm="ngForm">
+          <input type='text' [(ngModel)]="name" placeholder="untitled" ngControl="name" required/>
+          <button class="btn btn-success" type="submit" [disabled]="!saveForm.form.valid">Save</button>
+        </form>
+      </div>
+      <div class="row">
+        <div id="generated">
+          <pre class="full-size" [class.dirty]="dirty">{{generatedCode}}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blockly 3000</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="app/app.component.css" rel="stylesheet" />
+
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+    <!-- 2. Blockly -->
+    <script src="vendor/blockly/blockly_compressed.js"></script>
+    <script src="vendor/blockly/blocks_compressed.js"></script>
+    <script src="vendor/blockly/en.js"></script>
+    <script src="vendor/blockly/generators/typescript.js"></script>
+    <script src="vendor/blockly/blocks/angular2/component.js"></script>
+    <script src="vendor/blockly/blocks/angular2/import.js"></script>
+    <script src="vendor/blockly/generators/typescript/angular2/component.js"></script>
+    <script src="vendor/blockly/generators/typescript/angular2/import.js"></script>
+       
+    <!-- 3. Configure SystemJS -->
+    <script> 
+        System.config({
+        packages: {        
+          'app': {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
+    </script>
+</head>
+
+<body>
+    <app-component></app-component>
+</body>
+
+</html>
